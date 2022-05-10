@@ -10,9 +10,13 @@ divMain.append(divMainFrame);
 const divInputArea = document.createElement('textarea');
 divInputArea.type = 'text';
 divInputArea.className = 'input-area';
-// divInputArea.setAttribute(cols, 40);
-// divInputArea.setAttribute(rows, 40);
 divMain.prepend(divInputArea);
+
+const divLangSwitchHint = document.createElement('div');
+divLangSwitchHint.className = 'language-switcher-hint';
+divMain.append(divLangSwitchHint);
+divLangSwitchHint.innerHTML = 'To Switch Languages use SHIFT+ALT';
+divLangSwitchHint.style = 'font-size:25px';
 
 function createKeys(keyNum) {
   const keysArr = [];
@@ -26,7 +30,11 @@ function createKeys(keyNum) {
 }
 const keysArr = createKeys(64);
 
-const keysValues = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'Delete', 'Caps Lock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", '&#92', 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '⇧', 'Shift', 'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '⇦', '⇩', '⇨', 'Ctrl'];
+const keysValues = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 
+'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'Delete', 
+'Caps Lock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", '&#92', 'Enter', 
+'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '⇧', 'Shift', 
+'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '⇦', '⇩', '⇨', 'Ctrl'];
 function nameKeysEn() {
   for (let i = 0; i < keysArr.length; i += 1) {
     const keyVal = keysValues[i];
@@ -165,7 +173,11 @@ window.addEventListener('keyup', (e) => {
   }
 });
 
-const keysValuesRus = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', 'Delete', 'Caps Lock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '&#92', 'Enter', 'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '.', 'Shift', 'Ctrl', 'Alt', 'Win', 'Alt', 'Space', 'Alt', '⇦', '⇩', '⇨', 'Ctrl'];
+const keysValuesRus = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
+ 'Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', 'Delete',
+  'Caps Lock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '&#92', 'Enter', 
+  'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '.', '⇧', 'Shift', 
+  'Ctrl', 'Alt', 'Win', 'Space', 'Alt', '⇦', '⇩', '⇨', 'Ctrl'];
 function nameKeysRus() {
   for (let i = 0; i < keysArr.length; i += 1) {
     const keyVal = keysValuesRus[i];
