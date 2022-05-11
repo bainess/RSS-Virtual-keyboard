@@ -36,21 +36,35 @@
     h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     
     /*................................*/
-    body{
-        background-color: #fafafa;
-        overflow: hidden;
-    }
+body{
+    background-color: #fafafa;
+    overflow: hidden;
+}
+.input-area{
+    background-color: #E5D9D8;
+    width: 72vw;
+    height: 15vh;
+    font-size: 25px;
+    
+    
+}
+.main-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 15vh 15vw;
+   /* min-width: 1125px;
+    min-height: 125px; */
+}
 .main-frame{
-        position: relative;
-        background-color: #C52158;
-        width: 72vw;
-        height: 55vh;
-        margin: 20vh auto;
-        border: 3px solid #E5D9D8 ;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        
+    position: relative;
+    background-color: #C52158;
+    width: 72vw;
+    height: 55vh;
+    /* margin: 20vh auto; */
+    border: 3px solid #E5D9D8 ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     }
 .keys{
     background-color: #2C0158;
@@ -63,9 +77,17 @@
     line-height: 9vh;
     font-size: 1.7em;
 }
+.keys.active{
+    background-color: #34DADB;
+    color: #2C0158;
+    font-weight: 600;
+    border: 2px solid #34DADB;
+    transition: all 0.3s;
+}
 /*Backspace*/
 .keys:nth-child(14) {
     width: 10vw;
+    font-size: 1.4em;
 }
 /*Tab*/
 .keys:nth-child(15) {
@@ -74,6 +96,7 @@
 /*Delete*/
 .keys:nth-child(28) {
     width: 7vw;
+    font-size: 1.4em;
 }
 /*Caps Lock*/
 .keys:nth-child(29) {
