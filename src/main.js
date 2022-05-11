@@ -30,11 +30,11 @@ function createKeys(keyNum) {
 }
 const keysArr = createKeys(64);
 
-const keysValues = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 
-'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'Delete', 
-'Caps Lock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", '&#92', 'Enter', 
-'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '⇧', 'Shift', 
-'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '⇦', '⇩', '⇨', 'Ctrl'];
+const keysValues = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
+  'Tab', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'Delete',
+  'Caps Lock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", '&#92', 'Enter',
+  'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', '⇧', 'Shift',
+  'Ctrl', 'Win', 'Alt', 'Space', 'Alt', '⇦', '⇩', '⇨', 'Ctrl'];
 function nameKeysEn() {
   for (let i = 0; i < keysArr.length; i += 1) {
     const keyVal = keysValues[i];
@@ -45,6 +45,7 @@ function nameKeysEn() {
 
 // controls name
 const spaceKey = keysArr[58];
+spaceKey.classList.add('keys', 'spaceKey');
 const leftShift = keysArr[42];
 leftShift.classList.add('keys', 'leftShift');
 const rightShift = keysArr[54];
@@ -174,9 +175,9 @@ window.addEventListener('keyup', (e) => {
 });
 
 const keysValuesRus = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace',
- 'Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', 'Delete',
-  'Caps Lock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '&#92', 'Enter', 
-  'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '.', '⇧', 'Shift', 
+  'Tab', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', 'Delete',
+  'Caps Lock', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '&#92', 'Enter',
+  'Shift', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '.', '⇧', 'Shift',
   'Ctrl', 'Alt', 'Win', 'Space', 'Alt', '⇦', '⇩', '⇨', 'Ctrl'];
 function nameKeysRus() {
   for (let i = 0; i < keysArr.length; i += 1) {
@@ -217,7 +218,21 @@ window.addEventListener('keydown', (e) => {
 });
 
 switchLanguage(true);
-// window.addEventListener('keydown', function (e){
-//   if (e.getModifierState('Shift') && e.getModifierState('Control')) nameKeys();
 
-// })
+window.addEventListener('click', (e) => {
+  // e = e || window.event;
+  const { target } = e;
+  // const target = e.target;
+  // const { data, loading, error } = response;
+  // проверка на класс keys, исполнять только если верно
+  if (target.classList.contains('keys') && (!target.classList.contains('spaceKey') || !target.classList.contains('rightShift') || !target.classList.contains('leftShift'))) {
+    const text = target.textContent || target.innerText;
+    divInputArea.value += text;
+  }
+  if (target.classList.contains('spaceKey')) {
+    divInputArea.value += ' ';
+  }
+  // target.classList.add('active')
+  // const text = target.textContent || target.innerText;
+  // divInputArea.value += text;
+}, false);
